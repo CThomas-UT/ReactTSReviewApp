@@ -1,0 +1,18 @@
+.reviewstarscontainer {
+    display: flex;
+    color: black;
+    font-size: 20px;
+    align-items: center;
+  }
+  
+  .star {
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+    margin-right: 0px;
+    cursor: pointer;
+  }
+  
+  .star.active {
+    background-color: green;
+  }
