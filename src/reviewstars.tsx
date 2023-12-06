@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 export function ReviewStars() {
     const [hoveredIndex, setHoveredIndex] = useState(-1);
+    const [clickedIndex, setClickedIndex] = useState(-1);
 
     const handleMouseEnter = (index: number) => {
       setHoveredIndex(index);
@@ -13,8 +14,7 @@ export function ReviewStars() {
     };
   
     const handleClick = (index: number) => {
-      // You can add logic for handling the click event if needed
-      console.log(`Clicked on star ${index + 1}`);
+      setClickedIndex(index);
     };
 
   return (
@@ -22,7 +22,7 @@ export function ReviewStars() {
       {[...Array(10)].map((_, index) => (
         <div
           key={index}
-          className={`${styles.star} ${index <= hoveredIndex ? styles.active : ''}`}
+          className={`${styles.star} ${index <= hoveredIndex ? styles.active : hoveredIndex == -1 ? index <= clickedIndex ? styles.active : '': ''}`}
           onMouseEnter={() => handleMouseEnter(index)}
           onMouseLeave={handleMouseLeave}
           onClick={() => handleClick(index)}
